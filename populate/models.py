@@ -1,9 +1,7 @@
-from django.conf import settings
 from django.db import models
 
 # Create your models here.
 from django.db import models
-import pandas as pd
 
 class CustUsers(models.Model):
     id_number = models.IntegerField()
