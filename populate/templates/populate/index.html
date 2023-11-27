@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous" defer></script>
+    <title>Document</title>
+</head>
+<body class="bg-light">
+    <div class="container">
+       <h1 class="text-center fw-bold">Table of Users </h1>
+       <div class="col overflow-auto h-100 p-4">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identity Number</th>
+                    <th>Email</th>
+                    <th>Mobile Number</th>
+                    <th>Full Names</th>
+                    <th>Designation</th>
+                    <th>Occupation</th>
+                    <th>Nationality</th>
+                    <th>Source of Income</th>
+                    <th>Residential Address</th>
+                    <th>Postal Address</th>
+                    <th>Date of Appointment</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if users_list %}
+                {% for user in users_list %}
+                    <tr>
+                        <td>{{user.id_number}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.mobile_number}}</td>
+                        <td>{{user.full_names}}</td>
+                        <td>{{user.designation}}</td>
+                        <td>{{user.occupation}}</td>
+                        <td>{{user.Nationality}}</td>
+                        <td>{{user.income_source}}</td>
+                        <td>{{user.res_address}}</td>
+                        <td>{{user.post_address}}</td>
+                        <td>{{user.appoint_date}}</td>
+                    </tr>
+                {% endfor %}
+                {% else %}
+                <div class="col-md-12 text-center position-absolute top-50 start-50 translate-middle">
+                    <h1>No users</h1><br><br>
+                </div>
+                {% endif %}
+            </tbody>
+        </table>
+
+    </div>
+    </div>
+
+</body>
+</html>
