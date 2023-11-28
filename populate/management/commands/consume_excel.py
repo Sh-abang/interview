@@ -5,11 +5,13 @@ from populate.models import CustUsers
 
 class Command(BaseCommand):
 
-    help = 'Import data from Excel file to Customer model'
+    help = 'Import data from Excel file to `CustUser` model'
 
+    # Define Arguemernts for the command   
     def add_arguments(self, parser):
         parser.add_argument('excel_file', type=str, help='Path to the Excel file')
 
+    # Function to read excel file and create db objects
     def handle(self, *args, **options):
         excel_file_path = options['excel_file']
 
@@ -17,13 +19,13 @@ class Command(BaseCommand):
             # Read the Excel file into a pandas DataFrame
             df = pd.read_excel(excel_file_path)
 
-            
-
-
-            # Iterate through rows and create Customer objects
+            # Iterate through DataFrame rows and create User objects in the Database
             for index, row in df.iterrows():
+
+                # Date format from excel file is incompatible, so the next 2 lines will format it correctly for the db 
                 date_str = row['Date of Appointment']
                 formatted_date = datetime.strptime(date_str, '%d/%m/%Y').strftime('%Y-%m-%d')
+                
                 CustUsers.objects.create(
                     id_number=row['Identity Number'],
                     email=row['Email'],
