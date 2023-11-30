@@ -1,6 +1,5 @@
 asgiref==3.7.2
 backports.zoneinfo==0.2.1
--e git+https://github.com/Sh-abang/django.git@0bd2c0c9015b53c41394a1c0989afbfd94dc2830#egg=Django
 django==4.2 
 djangorestframework==3.14.0
 et-xmlfile==1.1.0
