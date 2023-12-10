@@ -2,7 +2,7 @@
 Interview task for leverage point with additional RESTful API functionality.
 
 ## Main Tasks
-The Logic for the requirments canbe found in `populate/management/commands/consume_excel.py`
+The Logic for the requirments can be found in [`populate/management/commands/consume_excel.py`](populate/management/commands/consume_excel.py)
 
 The results retrieved from the database are shown in the image.
 
